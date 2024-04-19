@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <td> Name</td>
+            <td>roll</td>
+            <td>city</td>
+            <td>
+                <a href="{% url 'stu_insert' %}" class="btn btn-outline-success">
+                   Add New
+                </a>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in studlist %}
+            <tr>
+                <td>{{i.name}}</td>
+                <td>{{i.roll}}</td>
+                <td>{{i.city}}</td>
+                <td>
+                    <a href="{% url 'stu_update' i.id %}" style="padding-right: 10px;" >
+                        Edit
+                    </a>
+                    <a href="{% url 'stu_delete' i.id %}" >
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}
